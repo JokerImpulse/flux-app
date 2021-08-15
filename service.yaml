@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: myweb
+  name: flux-webpage
   labels:
-    app: myweb
+    app: nginx
 spec:
   type: NodePort
   ports:
@@ -12,4 +12,4 @@ spec:
     targetPort: 80
     protocol: TCP
   selector:
-    app: sample-app
+    app: project-webpage:v1
