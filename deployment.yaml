@@ -1,22 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: project-webpage
-  labels:
-   app: nginx
+  name: sample-app
 spec:
   replicas: 3
+  revisionHistoryLimit: 3
   selector:
     matchLabels:
-      app: nginx
+      app: sample-app
   template:
     metadata:
       labels:
-       app: nginx
+        app: sample-app
     spec:
       containers:
-      - image: project-webpage:v1
-        name: nginx
+      - name: sample-app
+        image: nginx
         ports:
-        - containerPort: 80
-
+        - containerPort: 8080
